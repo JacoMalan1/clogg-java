@@ -1,0 +1,24 @@
+# IDE files
+.idea/
+
+# Gradle
+.gradle/
+build/
+out/
+gradle.properties
+
+# Keyring
+keyring.gpg
+
+# Package files
+*.jar
+*.war
+*.ear
+
+!gradle/wrapper/gradle-wrapper.jar
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
