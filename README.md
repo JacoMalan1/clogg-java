@@ -1,5 +1,3 @@
-[![Java CI with Gradle](https://github.com/Code-Log/clogg-java/actions/workflows/gradle.yml/badge.svg)](https://github.com/Code-Log/clogg-java/actions/workflows/gradle.yml)
-
 # CLogg
 
 ## Description

@@ -2,29 +2,30 @@ package com.codelog.clogg;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
+import java.util.Queue;
+import java.util.ArrayDeque;
 
 public class LogEventBuffer implements LogEventSubscriber {
 
     private List<LogEvent> past;
-    private Stack<LogEvent> unhandled;
+    private Queue<LogEvent> unhandled;
 
     public LogEventBuffer() {
         past = new ArrayList<>();
-        unhandled = new Stack<>();
+        unhandled = new ArrayDeque<>();
     }
 
-    public Stack<LogEvent> getUnhandledEvents() { return unhandled; }
+    public Queue<LogEvent> getUnhandledEvents() { return unhandled; }
     public List<LogEvent> getPastEvents() { return past; }
 
     public LogEvent popEvent() {
-        var event = unhandled.pop();
+        var event = unhandled.remove();
         past.add(event);
         return event;
     }
 
     @Override
     public void logEvent(LogEvent logEvent) {
-        unhandled.push(logEvent);
+        unhandled.add(logEvent);
     }
 }
