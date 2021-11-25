@@ -11,8 +11,7 @@ group 'com.codelog'
 version '1.0.0'
 
 repositories {
-    // Use JCenter for resolving dependencies.
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
