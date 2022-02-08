@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ master ]
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   build:
 
@@ -20,7 +24,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 15
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Build and publish with Gradle
+      uses: actions/labeler@v2
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+      run: ./gradlew build publish
