@@ -28,6 +28,9 @@ publishing {
     }
     publications {
         gpr(MavenPublication) {
+            groupId 'com.codelog'
+            artifactId 'clogg'
+            version '1.0.1'
             from(components.java)
         }
     }
