@@ -10,11 +10,18 @@ public class Logger {
     private int logLevel;
     private final List<LogEventSubscriber> logEventSubscribers;
 
+    /**
+     * Initializes a new instance of the Logger class
+     */
     private Logger() {
         logLevel = LogLevel.Debug.ordinal();
         logEventSubscribers = new ArrayList<>();
     }
 
+    /**
+    * Gets an instance of the Logger class
+    * @return An instance of Logger
+    */
     public static Logger getInstance() {
         if (instance == null)
             instance = new Logger();
@@ -52,6 +59,10 @@ public class Logger {
             subscriber.logEvent(event);
     }
 
+    /**
+    * Logs a message with INFO severity
+    * @param message Message to be logged
+    */
     public void info(String message) {
         log(message, LogLevel.Info);
     }
